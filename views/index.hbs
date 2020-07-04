@@ -1,0 +1,75 @@
+<section class="hero_section hero_section_index">
+    <div class="hero_description">
+        <div class="hero_header_container hero_align">
+            <h1 class="hero_header x-bold">Order, eat, repeat!</h1>
+        </div>
+        <div class="hero_button hero_align">
+            <a href="../packages.hbs">
+                <div class="hero_pkgbt">
+                    <p class="pointerable">VIEW PACKAGES</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<section class="how_it_works">
+    <div class="how_it_works_headers">
+        <h1 class="bold">Pick and enjoy...</h1>
+        <h3 class="normal">And repeat.</h3>
+    </div>
+    <div class="step-container">
+        <div class="step1-container">
+            <div class="step1 step"></div>
+            <div class="step-description">
+                <h3 class="bold">Pick</h3>
+                <p>Choose from our wide variety of selections.</p>
+            </div>
+        </div>
+        <div class="step2-container">
+            <div class="step2 step"></div>
+            <div class="step-description">
+                <h3 class="bold">Heat</h3>
+                <p>Plate it out, heat it up.</p>
+            </div>
+        </div>
+        <div class="step3-container">
+            <div class="step3 step"></div>
+            <div class="step-description">
+                <h3 class="bold">Enjoy</h3>
+                <p>Meals ready. Bon Appétit</p>
+            </div>
+        </div>
+        <div class="step4-container">
+            <div class="step4 step"></div>
+            <div class="step-description">
+                <h3 class="bold">Repeat</h3>
+                <p>Re-order your favorite. Or try new ones.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="top-package-section">
+    <div class="top-package-description">
+        <h1 class="bold">Here are some of our popular choices</h1>
+        <p class="normal">Every package comes with as many meals as you please.</p>
+    </div>
+    <div class="top-package-container">
+        {{#each data}}
+        {{#if this.isTopPackage}}
+        <div class="top-package">
+            <div class="package-img pointerable"><img src={{this.image}} alt=""></div>
+            <div class="package-description pointerable">
+                <h4 class="x-bold">{{this.name}}</h4>
+                <p class="normal">{{this.description}}</p>
+            </div>
+            <div>
+                <p class="price">$ {{this.price}}</p>
+            </div>
+        </div>
+        {{/if}}
+        {{/each}}
+    </div>
+</section>

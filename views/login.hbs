@@ -1,0 +1,29 @@
+<section class="hero_section login-hero">
+</section>
+
+<form action="/login-form" method="POST" style="padding: 30px;">
+    <div class="form-create-account" style="margin: 20px auto;">
+        <h3 class="signup-header bold">Log in</h3>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email">
+            <div class="error-container">
+                {{#if error.emailError}}
+                <p class="normal">{{error.emailError}}</p>
+                {{/if}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password">
+            <div class="error-container">
+                {{#if error.passwordError}}
+                <p class="normal">{{error.passwordError}}</p>
+                {{/if}}
+            </div>
+        </div>
+
+        <a href="../maintenance.hbs">Forgot password?</a>
+        <button class="submit-btn" type="submit" id="sign-in-btn">Sign In</button>
+    </div>
+</form>

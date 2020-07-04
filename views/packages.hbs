@@ -1,0 +1,22 @@
+<section class="hero_section hero_section_packages">
+</section>
+
+<section class="packages-section">
+    <div class="top-package-description packages-header">
+        <h1 class="bold">Pick one, or many, and enjoy!</h1>
+        <p class="normal"><i>Easy!</i></p>
+    </div>
+    <div class="packages-divide-line"></div>
+    <div class="packages-container">
+        {{#each data}}
+        <div class="top-package">
+            <div class="package-img pointerable"><img src={{this.image}} alt=""></div>
+            <div class="package-description pointerable">
+                <h4 class="x-bold">{{this.name}}</h4>
+                <p class="normal">{{this.description}}</p>
+                <p class="price">$ {{this.price}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
