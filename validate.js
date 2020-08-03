@@ -1,3 +1,5 @@
+var emailRegex = new RegExp("^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z]+$");
+
 module.exports.loginValidate = (body) => {
   return new Promise((resolve, reject) => {
     var error = {
@@ -11,7 +13,7 @@ module.exports.loginValidate = (body) => {
       error.passwordError = "This field is required!";
     }
     if (error.emailError == null && error.passwordError == null) {
-      resolve(error);
+      resolve(null);
     } else {
       reject(error);
     }
@@ -20,6 +22,7 @@ module.exports.loginValidate = (body) => {
 
 module.exports.registerValidate = (body) => {
   return new Promise((resolve, reject) => {
+    console.log("Insdie validation");
     var error = {
       firstNameError: null,
       lastNameError: null,
@@ -44,15 +47,17 @@ module.exports.registerValidate = (body) => {
     }
     if (body.email == "") {
       error.emailError = "This field is required!";
+    } else if (!emailRegex.test(body.email)) {
+      error.emailError = "This is not a valid email!";
     }
 
     var valid =
-      error.firstNameError != null &&
-      error.lastNameError != null &&
-      error.emailError != null &&
-      error.passswordError != null;
+      error.firstNameError == null &&
+      error.lastNameError == null &&
+      error.emailError == null &&
+      error.passswordError == null;
     if (valid) {
-      resolve(error);
+      resolve(null);
     } else {
       reject(error);
     }

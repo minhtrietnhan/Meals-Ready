@@ -31,6 +31,10 @@ a:hover {
   font-weight: 400;
 }
 
+.visible {
+  display: block;
+}
+
 /* HEADER */
 .navbar {
   background: white;
@@ -146,8 +150,8 @@ nav ul li {
 }
 
 .dashboard-hero {
-  background: url(/img/dashboard-hero.png) no-repeat center;
-  background-size: 80%;
+  background: url(/img/dashboard-hero.jpg) no-repeat center;
+  background-size: 100%;
 }
 
 /* HOW IT WORKS */
@@ -310,6 +314,83 @@ nav ul li {
   color: red;
 }
 
+/* Dashboard */
+.dashboard-container {
+  position: relative;
+  height: 70vh;
+}
+.trigger-container {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  z-index: 3;
+}
+.nav-trigger {
+  position: relative;
+  width: 30px;
+  height: 50px;
+  display: block;
+  margin: 0 auto;
+}
+.nav-trigger span,
+.nav-trigger span:before,
+.nav-trigger span:after {
+  width: 30px;
+  height: 4px;
+  background-color: black;
+  position: absolute;
+}
+.nav-trigger span {
+  top: 50%;
+}
+.nav-trigger span:before,
+.nav-trigger span:after {
+  content: "";
+}
+.nav-trigger span:before {
+  top: -7px;
+}
+.nav-trigger span:after {
+  top: 6px;
+}
+.side-bar {
+  position: absolute;
+  width: 100%;
+  padding-top: 50px;
+  display: none;
+}
+.side-bar ul {
+  margin: 0;
+  padding: 0;
+}
+.side-bar ul li {
+  padding: 16px 16px;
+  border-bottom: 1px solid black;
+  position: relative;
+}
+.side-bar ul li a {
+  color: #fc2339;
+  display: block;
+  text-decoration: none;
+  font-weight: 600;
+}
+.side-bar ul li i {
+  color: #fd0f27;
+  min-width: 20px;
+  text-align: center;
+}
+.side-bar.visible {
+  display: block;
+}
+/* main content styles */
+.main-content {
+  position: absolute;
+  padding-top: 100px;
+  height: 70vh;
+  width: 100%;
+  padding-top: 50px;
+  overflow: scroll;
+}
 /* Maintenance */
 .maintenance {
   background: url(/img/maintenance.png) no-repeat center;
@@ -423,6 +504,11 @@ footer .pointerable:hover {
     background-size: 150%;
   }
 
+  .dashboard-hero {
+    background: url(/img/dashboard-hero.jpg) no-repeat center;
+    background-size: 150%;
+  }
+
   .maintenance {
     background: url(/img/maintenance-tablet.png) no-repeat center;
     background-size: 200%;
@@ -464,6 +550,10 @@ footer .pointerable:hover {
     background-size: 200%;
   }
   .login-hero {
+    background-size: 200%;
+  }
+  .dashboard-hero {
+    background: url(/img/dashboard-hero.jpg) no-repeat center;
     background-size: 200%;
   }
   .maintenance {
@@ -524,5 +614,59 @@ footer .pointerable:hover {
 
   .flex-footer {
     width: 90%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .nav-trigger {
+    display: none;
+  }
+  .side-bar {
+    display: block;
+    width: 90px;
+    padding-top: 0;
+    z-index: 2;
+    background: #fc2339;
+  }
+  .side-bar ul li span:nth-child(2) {
+    display: none;
+  }
+  .side-bar ul li {
+    border-bottom: 1px solid white;
+    position: relative;
+  }
+  .side-bar ul li i {
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+  }
+  .main-content {
+    margin-left: 90px;
+    padding-left: 15px;
+    width: 100% - 90px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .nav-trigger {
+    display: none;
+  }
+  .side-bar {
+    width: 300px;
+  }
+  .main-content {
+    margin-top: 0;
+    padding-top: 0;
+    margin-left: 300px;
+    padding-left: 30px;
+  }
+  .side-bar ul li span:nth-child(2) {
+    display: inline-block;
+    padding-left: 10px;
+  }
+  .side-bar ul li a {
+    color: #fff;
+    font-weight: 600;
+    padding-left: 10px;
   }
 }

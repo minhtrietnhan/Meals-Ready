@@ -1,2 +1,63 @@
 <section class="hero_section dashboard-hero">
 </section>
+{{!-- <section>
+    <h1 class="bold text-center" style="padding: 30px 0;">Welcome!</h1>
+    <div class="dashboard-container">
+        <div class="trigger-container">
+            <a href="#" class="nav-trigger"><span></span></a>
+        </div>
+        <div class="side-bar">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span><i class="fa fa-user"></i></span>
+                            <span>Personal Information</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><i class="fa fa-bar-chart"></i></span>
+                            <span>Purchase Statistics</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            <h2 class="bold">Personal Information</h2>
+            <span class="bold">First Name:</span>
+            <span>{{data.firstName}}</span>
+            </br>
+            <span class="bold">Last Name:</span>
+            <span>{{data.lastName}}</span>
+            </br>
+
+            <span class="bold">Email:</span>
+            <span>{{data.email}}</span>
+            </br>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $('.nav-trigger').click(function (e) {
+            $('.side-bar').toggleClass('visible');
+            e.preventDefault();
+        });
+    });
+</script> --}}
+
+<h2 class="bold text-center">Personal Information</h2>
+<div class="text-center">
+    <span class="bold">First Name:</span>
+    <span>{{data.firstName}}</span>
+</div>
+<div class="text-center">
+    <span class="bold">Last Name:</span>
+    <span>{{data.lastName}}</span>
+</div>
+<div class="text-center">
+    <span class="bold">Email:</span>
+    <span>{{data.email}}</span>
+</div>
