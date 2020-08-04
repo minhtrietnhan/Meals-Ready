@@ -85,8 +85,13 @@ app.get("/dashboard.hbs", ensureLogin, (req, res) => {
 app.post("/login-form", (req, res) => {
   validation
     .loginValidate(req.body)
-    .then(() => {
-      res.render("index");
+    .then((status) => {
+      if (status == null){
+        db.validatePassword(req.body).then((user)=>{
+
+          res.redirect("/dashboard");
+        })
+      }
     })
     .catch((message) => {
       res.render("login", { error: message });
@@ -98,10 +103,10 @@ app.post("/register", (req, res) => {
     .registerValidate(req.body)
     .then((status) => {
       console.log(status);
-      if (status == null)
+      if (status == null){
         db.addCustomer(req.body)
           .then((user) => {
-            temp = {
+            var temp = {
               firstName: user.firstName,
               lastName: user.lastName,
               email: user.email,
@@ -113,6 +118,7 @@ app.post("/register", (req, res) => {
             console.log(error);
             res.render("signup", { error: message });
           });
+      }
     })
     .catch((message) => {
       console.log(`Error registering! Error: ${message.emailError}`);
