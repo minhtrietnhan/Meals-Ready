@@ -88,7 +88,11 @@ app.post("/login-form", (req, res) => {
     .then((status) => {
       if (status == null){
         db.validatePassword(req.body).then((user)=>{
-
+          req.session.user = {
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+          }
           res.redirect("/dashboard");
         })
       }
