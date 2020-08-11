@@ -6,7 +6,7 @@
         <h3 class="signup-header bold">Log in</h3>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" name="email">
+            <input type="email" class="form-control" name="email" value="{{form.email}}">
             <div class="error-container">
                 {{#if error.emailError}}
                 <p class="normal">{{error.emailError}}</p>

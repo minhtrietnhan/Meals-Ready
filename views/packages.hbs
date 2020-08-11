@@ -7,16 +7,19 @@
         <p class="normal"><i>Easy!</i></p>
     </div>
     <div class="packages-divide-line"></div>
-    <div class="packages-container">
+    <div class="top-package-container">
         {{#each data}}
-        <div class="top-package">
-            <div class="package-img pointerable"><img src={{this.image}} alt=""></div>
-            <div class="package-description pointerable">
-                <h4 class="x-bold">{{this.name}}</h4>
-                <p class="normal">{{this.description}}</p>
-                <p class="price">$ {{this.price}}</p>
+        <a href="package/{{this.name}}">
+            <div class="top-package">
+                <div class="package-img pointerable"><img src={{this.image}} alt=""></div>
+                <div class="package-description pointerable text-center">
+                    <h4 class="x-bold" style="margin: 0 0 20px 0; height: 17%;">{{this.name}}</h4>
+                    <p class="normal" style="margin: 0 0 10px 0; height: 45%;">{{this.description}}</p>
+                    <p class="price bold" style="margin: 0; height: 20%;">$ {{this.price}}</p>
+                </div>
             </div>
-        </div>
+        </a>
+
         {{/each}}
     </div>
 </section>

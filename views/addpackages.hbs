@@ -1,0 +1,79 @@
+<section class="hero_section dashboard-hero">
+</section>
+
+<form action="/add-package-form" method="POST" style="padding: 30px;" enctype="multipart/form-data">
+    <div class="form-add-packages">
+        {{#if message}}
+        <div class="alert alert-danger alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <strong>Error:</strong> {{message}}.
+        </div>
+        {{/if}}
+
+        <h2 class="add-package-header bold">Packages Information</h2>
+        <div class="packages-divide-line"></div>
+        <h6 class="text-center">Please fill in the package's information and upload a picture of the package.</h6>
+        <div class="add-package-container">
+            <div class="add-package-info">
+                <div class="form-group">
+                    <label for="package_name" class="border-bottom-thin bold">Package Name</label>
+                    <input type="text" class="form-control" name="package_name">
+                    <div class="error-container">
+                        {{#if error.nameError}}
+                        <p class="normal">{{error.nameError}}</p>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="package_price" class="border-bottom-thin bold">Price</label>
+                    <input type="text" class="form-control" name="package_price">
+                    <div class="error-container">
+                        {{#if error.priceError}}
+                        <p class="normal">{{error.priceError}}</p>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="package_category" class="border-bottom-thin bold">Category</label>
+                    <input type="text" class="form-control" name="package_category">
+                    <div class="error-container">
+                        {{#if error.categoryError}}
+                        <p class="normal">{{error.categoryError}}</p>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="package_noofmeal" class="border-bottom-thin bold">No. of meals</label>
+                    <input type="text" class="form-control" name="package_noofmeal">
+                    <div class="error-container">
+                        {{#if error.noOfMealsError}}
+                        <p class="normal">{{error.noOfMealsError}}</p>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="package_img" class="border-bottom-thin bold">Package Image</label>
+                    <input id="package_img" type="file" name="package_img" /><br />
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="top_package">
+                        <label class="form-check-label" for="top_package">Top package?</label>
+                    </div>
+                </div>
+            </div>
+            <div class="add-package-description">
+                <label for="package_description" class="border-bottom-thin bold">Package Description</label>
+                <textarea name="package_description" placeholder="Description" cols="30" rows="20"></textarea>
+                <div class="error-container">
+                    {{#if error.descriptionError}}
+                    <p class="normal">{{error.descriptionError}}</p>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        <button style="width: 100%;" class="login-btn-2" type="submit">Submit</button>
+    </div>
+</form>

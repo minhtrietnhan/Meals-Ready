@@ -51,15 +51,12 @@ module.exports.registerValidate = (body) => {
       error.emailError = "This is not a valid email!";
     }
 
-    var valid =
-      error.firstNameError == null &&
-      error.lastNameError == null &&
-      error.emailError == null &&
-      error.passswordError == null;
-    if (valid) {
-      resolve(null);
-    } else {
-      reject(error);
+    for (var key in error) {
+      if (error[key] != null) {
+        reject(error);
+      }
     }
+
+    resolve();
   });
 };
